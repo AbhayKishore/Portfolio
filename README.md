@@ -2,7 +2,7 @@
 
 An interactive, modern, **React + Vite** based portfolio showcasing my work in **Full-Stack Development**, **Artificial Intelligence**, and **Software Engineering**.
 
-**Live Demo →** (Insert your Vercel link here)  
+**Live Demo →** https://abhaykishore.vercel.app/
 **GitHub Repo →** https://github.com/AbhayKishore/portfolio
 
 ---
