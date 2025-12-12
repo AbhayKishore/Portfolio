@@ -46,7 +46,6 @@ body {
 /* =========================================
    3. LAYOUT UTILITIES & ANIMATIONS
    ========================================= */
-/* The "Reveal" Logic */
 .reveal {
   opacity: 0;
   transform: translateY(30px);
@@ -57,14 +56,12 @@ body {
   transform: translateY(0);
 }
 
-/* Text Gradient Utility */
 .text-gradient {
   background: var(--accent-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* Sections */
 section {
   padding: 6rem 8%;
   max-width: 1200px;
@@ -88,7 +85,7 @@ section {
 }
 
 /* =========================================
-   4. SIDEBAR NAVIGATION
+   4. DESKTOP SIDEBAR NAVIGATION
    ========================================= */
 .sidebar {
   position: fixed; left: 0; top: 0; bottom: 0;
@@ -104,7 +101,6 @@ section {
 
 .sidebar.collapsed { width: var(--sidebar-collapsed-width); padding: 30px 12px; }
 
-/* Logo */
 .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; margin-bottom: 2rem; color: var(--text); font-weight: 700; }
 .logo-avatar {
   width: 44px; height: 44px; background: var(--accent-gradient); color: white;
@@ -113,7 +109,6 @@ section {
 }
 .sidebar.collapsed .logo-text { display: none; }
 
-/* Nav Links */
 .sidebar-nav { display: flex; flex-direction: column; gap: 5px; flex: 1; overflow-y: auto; }
 .sidebar-link {
   display: flex; align-items: center; gap: 12px; padding: 12px;
@@ -125,7 +120,6 @@ section {
 .sidebar-icon { font-size: 1.2rem; }
 .sidebar.collapsed .sidebar-label { display: none; }
 
-/* CTA Button */
 .sidebar-cta { margin-top: auto; }
 .contact-btn {
   display: flex; align-items: center; justify-content: center; gap: 8px;
@@ -147,20 +141,23 @@ section {
 .page-content.collapsed { margin-left: var(--sidebar-collapsed-width); }
 
 /* =========================================
-   5. SECTIONS
+   5. MOBILE HEADER & MENU (APPLE STYLE)
    ========================================= */
+/* Default: Hidden on Desktop */
+.mobile-header { display: none; }
+.mobile-menu-overlay { display: none; }
 
-/* --- HERO --- */
+/* =========================================
+   6. SECTIONS
+   ========================================= */
+/* Hero */
 .hero { min-height: 90vh; display: flex; align-items: center; }
 .hero-content { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 3rem; align-items: center; width: 100%; }
 .hero .text-gradient { font-size: 3.5rem; line-height: 1.1; margin: 0.5rem 0; }
 .lead { font-size: 1.15rem; color: var(--text-muted); margin-bottom: 2rem; max-width: 500px; }
 
-/* Hero Illustration (Laptop & Blobs) */
-.hero-img-container {
-  position: relative; width: 100%; height: 450px;
-  display: flex; align-items: center; justify-content: center;
-}
+/* Hero Illustration */
+.hero-img-container { position: relative; width: 100%; height: 450px; display: flex; align-items: center; justify-content: center; }
 .hero-blob { position: absolute; border-radius: 50%; filter: blur(40px); z-index: 0; opacity: 0.6; }
 .blob-1 { width: 300px; height: 300px; background: var(--accent); top: 10%; right: 10%; animation: floatBlob 8s infinite alternate; }
 .blob-2 { width: 250px; height: 250px; background: #8b5cf6; bottom: 10%; left: 15%; animation: floatBlob 10s infinite alternate-reverse; }
@@ -186,11 +183,10 @@ section {
 @keyframes floatLaptop { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
 @keyframes floatBadge { 0%, 100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-10px) scale(1.05); } }
 
-/* --- ABOUT --- */
+/* About */
 .about__container { display: grid; grid-template-columns: repeat(2, 1fr); gap: 4rem; align-items: center; }
 .about__img { width: 350px; border-radius: var(--radius); justify-self: center; box-shadow: var(--shadow-card); border: 5px solid white; }
 .about__description { margin-bottom: 1rem; color: var(--text-muted); }
-
 .about__boxes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2.5rem; margin-bottom: 2.5rem; }
 .about__box { background-color: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem 1rem; text-align: center; box-shadow: var(--shadow-card); transition: all 0.3s ease; }
 .about__box:hover { transform: translateY(-5px); box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.15); border-color: var(--accent); }
@@ -198,19 +194,18 @@ section {
 .about__title { font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: 0.25rem; }
 .about__subtitle { font-size: 0.85rem; color: var(--text-muted); }
 
-/* Button Generic */
+/* Buttons */
 .button { display: inline-flex; align-items: center; background-color: var(--text); color: white; padding: 1rem 2rem; border-radius: 50px; font-weight: 600; gap: 0.8rem; text-decoration: none; transition: all 0.3s ease; box-shadow: var(--shadow-card); }
 .button:hover { background-color: var(--accent); transform: translateY(-3px); color: white; }
 .button__icon { transition: transform 0.3s; }
 .button:hover .button__icon { transform: translateX(5px); }
 
-/* --- PROJECTS / WORK FILTERS --- */
+/* Work Filters & Grid */
 .work-filters { display: flex; justify-content: center; align-items: center; gap: 1.5rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
 .work-item { cursor: pointer; color: var(--text); padding: 0.5rem 1.25rem; font-weight: 600; border-radius: 0.5rem; text-transform: capitalize; transition: all 0.3s ease; font-size: 0.95rem; background: transparent; }
 .work-item:hover { color: var(--accent); }
 .work-item.active-work { background: var(--accent); color: white; box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3); transform: translateY(-2px); }
 
-/* Project Grid */
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 2rem; }
 .project-card { background: white; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-card); border: 1px solid white; text-decoration: none; color: inherit; transition: transform 0.3s; display: flex; flex-direction: column; }
 .project-card:hover { transform: translateY(-8px); }
@@ -220,7 +215,7 @@ section {
 .tech-badges { margin-top: auto; display: flex; gap: 0.5rem; flex-wrap: wrap; }
 .tech-badge { font-size: 0.75rem; background: #f1f5f9; padding: 4px 10px; border-radius: 20px; color: var(--text-muted); font-weight: 600; }
 
-/* --- TIMELINE (Education/Experience) --- */
+/* Timeline */
 .timeline { position: relative; border-left: 2px solid #cbd5e1; padding-left: 2rem; margin-left: 1rem; }
 .timeline-item { position: relative; margin-bottom: 2.5rem; }
 .timeline-dot { position: absolute; left: -2.6rem; top: 0; width: 16px; height: 16px; background: white; border: 4px solid var(--accent); border-radius: 50%; }
@@ -228,7 +223,7 @@ section {
 .timeline-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.15); border-color: rgba(59, 130, 246, 0.3); z-index: 2; }
 .timeline-item:hover .timeline-dot { background: var(--accent); box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2); transform: scale(1.1); transition: all 0.3s ease; }
 
-/* --- CERTIFICATIONS & ACHIEVEMENTS --- */
+/* Certs & Achievements */
 .cert-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1.5rem; }
 .cert-card { background: white; padding: 1.8rem; border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow-card); transition: all 0.3s ease; display: flex; flex-direction: column; height: 100%; position: relative; overflow: hidden; }
 .cert-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--accent-gradient); opacity: 0; transition: opacity 0.3s; }
@@ -243,7 +238,7 @@ section {
 .achievement-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.15); border-color: var(--accent); }
 .achievement-icon { width: 40px; height: 40px; background: #eff6ff; color: var(--accent); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; flex-shrink: 0; }
 
-/* --- SKILLS --- */
+/* Skills */
 .skills-container { display: grid; grid-template-columns: 350px 1fr; gap: 4rem; max-width: 1100px; margin: 0 auto; align-items: flex-start; }
 .skills-tabs { display: flex; flex-direction: column; gap: 1.5rem; }
 .skills-header { display: flex; align-items: center; cursor: pointer; padding: 0; background: transparent; transition: all 0.3s ease; opacity: 0.6; }
@@ -262,10 +257,10 @@ section {
 .progress-bg { width: 100%; height: 8px; background-color: #1e293b; border-radius: 4px; overflow: hidden; }
 .progress-fill { height: 100%; background: var(--accent-gradient); border-radius: 4px; }
 
-/* --- CONTACT --- */
+/* Contact */
 .contact-container { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(10px); padding: 3rem; border-radius: 24px; box-shadow: var(--shadow-card); text-align: center; max-width: 700px; margin: 0 auto; border: 1px solid white; position: relative; z-index: 5; }
 
-/* --- FOOTER --- */
+/* Footer */
 .footer { background-color: var(--text); color: white; padding: 4rem 5% 1.5rem; margin-top: auto; position: relative; z-index: 10; }
 .footer-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 3rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
 .footer-brand h2 { font-size: 1.8rem; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 0.5rem; }
@@ -278,23 +273,17 @@ section {
 .footer-socials a:hover { background: var(--accent); transform: translateY(-3px); box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4); }
 .footer-bottom { padding-top: 1.5rem; text-align: center; color: #64748b; font-size: 0.9rem; }
 
-/* =========================================
-   6. CHAT WINDOW & BUBBLE
-   ========================================= */
+/* Chat Window & Bubble */
 .floating-bubble { position: fixed; right: 30px; bottom: 30px; width: 60px; height: 60px; border-radius: 50%; background: var(--text); color: white; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; cursor: pointer; z-index: 2000; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
-
 .chat-window { position: fixed; bottom: 100px; right: 30px; width: 380px; height: 500px; background: white; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.15); border: 1px solid var(--border); display: flex; flex-direction: column; overflow: hidden; z-index: 2000; transform-origin: bottom right; animation: scaleIn 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
 @keyframes scaleIn { from { opacity: 0; transform: scale(0.9) translateY(20px); } to { opacity: 1; transform: scale(1) translateY(0); } }
-
 .chat-header { background: var(--accent-gradient); padding: 1rem; color: white; display: flex; justify-content: space-between; align-items: center; font-weight: 600; }
 .chat-close-btn { background: rgba(255,255,255,0.2); border: none; width: 28px; height: 28px; border-radius: 50%; color: white; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
 .chat-close-btn:hover { background: rgba(255,255,255,0.4); }
-
 .chat-body { flex: 1; padding: 1.5rem; overflow-y: auto; display: flex; flex-direction: column; gap: 1rem; background: #f8fafc; }
 .message { max-width: 80%; padding: 0.8rem 1rem; border-radius: 12px; font-size: 0.95rem; line-height: 1.5; position: relative; }
 .message.bot { background: white; color: var(--text); border-top-left-radius: 2px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; align-self: flex-start; }
 .message.user { background: var(--accent); color: white; border-top-right-radius: 2px; align-self: flex-end; box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3); }
-
 .chat-options { padding: 1rem; background: white; border-top: 1px solid var(--border); display: flex; flex-direction: column; gap: 0.6rem; max-height: 180px; overflow-y: auto; }
 .option-btn { background: white; border: 1px solid #e2e8f0; color: var(--text); padding: 0.8rem 1rem; border-radius: 12px; font-size: 0.9rem; font-weight: 500; cursor: pointer; transition: all 0.2s; text-align: left; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.02); }
 .option-btn:hover { background: #eff6ff; border-color: var(--accent); color: var(--accent); transform: translateX(5px); }
@@ -302,240 +291,161 @@ section {
 .option-btn:hover::after { opacity: 1; }
 
 /* =========================================
-   7. MASTER RESPONSIVE BREAKPOINTS
+   7. RESPONSIVE BREAKPOINTS
    ========================================= */
 
-/* Mobile / Bottom Sidebar (max-width: 768px) */
 @media (max-width: 768px) {
-  /* 1. Convert Sidebar to Bottom Bar */
-  .sidebar { 
-    position: fixed;
-    top: auto; 
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: auto; /* Height adapts to content */
-    
-    flex-direction: row; /* Horizontal layout */
-    padding: 0; 
-    
-    border-right: none;
-    border-top: 1px solid var(--border);
-    background: rgba(255, 255, 255, 0.95); /* Slightly more opaque for readability */
-    backdrop-filter: blur(10px);
-    box-shadow: 0 -4px 20px rgba(0,0,0,0.05);
-    z-index: 1000;
+  /* HIDE OLD SIDEBAR */
+  .sidebar {
+    display: none !important;
   }
 
-  .sidebar-inner {
-    width: 100%;
+  /* SHOW MOBILE TOP NAV */
+  .mobile-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
-
-  /* 2. Make the Navigation Scrollable */
-  .sidebar-nav { 
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    
-    /* Horizontal Scroll Magic */
-    overflow-x: auto; 
-    -webkit-overflow-scrolling: touch; /* Smooth scroll for iOS */
-    
-    /* Layout Spacing */
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    padding: 10px 15px; /* Padding inside the scroll area */
-    gap: 12px;
-    margin: 0;
-    
-    /* Prevent wrapping */
-    white-space: nowrap;
-    flex-wrap: nowrap;
-    
-    /* Hide Scrollbar (Cleaner look) */
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE/Edge */
-  }
-  
-  /* Hide scrollbar for Chrome/Safari/Opera */
-  .sidebar-nav::-webkit-scrollbar {
-    display: none;
+    height: 60px;
+    padding: 0 20px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    z-index: 2001; 
   }
 
-  /* 3. Style the Individual Links */
-  .sidebar-link { 
-    /* Layout: Stack Icon and Text */
+  /* Mobile Header Items */
+  .mobile-logo {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--text);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .mobile-logo img {
+      width: 30px;
+      height: 30px;
+      border-radius: 8px;
+  }
+
+  .hamburger-btn {
+    font-size: 1.5rem;
+    color: var(--text);
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  /* FULL SCREEN MENU OVERLAY */
+  .mobile-menu-overlay {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: var(--bg);
+    z-index: 3000;
+    padding: 80px 30px 40px;
+    transform: translateY(-100%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    visibility: hidden;
+    overflow-y: auto;
+  }
+
+  .mobile-menu-overlay.open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .mobile-menu-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 2rem;
+    color: var(--text-muted);
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  .mobile-menu-close:hover {
+      color: var(--text);
+  }
+
+  .mobile-nav-list {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    
-    /* Important: Stop items from shrinking so they flow off-screen */
-    flex: 0 0 auto; 
-    min-width: 65px; /* Minimum touch target width */
-    
-    padding: 8px 4px;
-    border-radius: 12px;
-    gap: 5px;
-    
-    font-size: 0.7rem; /* Smaller text for mobile */
-    text-align: center;
+    gap: 24px;
   }
 
-  .sidebar-icon {
-    font-size: 1.3rem; /* Make icons slightly larger for touch */
-    margin: 0;
+  .mobile-nav-link {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--text);
+    text-decoration: none;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
   }
 
-  /* 4. Ensure Label is Visible */
-  .sidebar-label {
-    display: block;
-    font-weight: 500;
-    font-size: 0.7rem;
+  .mobile-menu-overlay.open .mobile-nav-link {
+    opacity: 1;
+    transform: translateY(0);
   }
+  
+  /* Staggered animation */
+  .mobile-menu-overlay.open .mobile-nav-link:nth-child(1) { transition-delay: 0.1s; }
+  .mobile-menu-overlay.open .mobile-nav-link:nth-child(2) { transition-delay: 0.15s; }
+  .mobile-menu-overlay.open .mobile-nav-link:nth-child(3) { transition-delay: 0.2s; }
+  .mobile-menu-overlay.open .mobile-nav-link:nth-child(4) { transition-delay: 0.25s; }
+  .mobile-menu-overlay.open .mobile-nav-link:nth-child(5) { transition-delay: 0.3s; }
+  .mobile-menu-overlay.open .mobile-nav-link:nth-child(6) { transition-delay: 0.35s; }
+  .mobile-menu-overlay.open .mobile-nav-link:nth-child(7) { transition-delay: 0.4s; }
+  .mobile-menu-overlay.open .mobile-nav-link:nth-child(8) { transition-delay: 0.45s; }
 
-  /* 5. Hide Desktop Elements */
-  .sidebar-cta,
-  .logo,
-  .logo-text,
-  .logo-avatar {
-    display: none;
-  }
 
-  /* 6. Adjust Main Content Padding */
-  .page-content { 
+  /* Content Adjustments */
+  .page-content {
     margin-left: 0;
-    padding-bottom: 90px; /* Space so content is not hidden behind bottom nav */
+    padding-top: 80px; 
+    padding-bottom: 2rem;
   }
 
-  /* Hero Section */
   .hero-content {
     grid-template-columns: 1fr;
     text-align: center;
     gap: 2rem;
   }
-
-  .hero .text-gradient {
-    font-size: 2.5rem;
-  }
-
   .hero-img-container {
     height: 350px;
     transform: scale(0.9);
   }
 
-  .lead {
-    margin: 0 auto 2rem;
-  }
-
-  /* About Section */
-  .about__container {
-    grid-template-columns: 1fr;
-    text-align: center;
-    gap: 2rem;
-  }
-
-  .about__img {
-    width: 280px;
-    margin: 0 auto;
-  }
-
-  .about__data {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .about__boxes {
-    gap: 1rem;
-    width: 100%;
-  }
-
-  /* Skills Section */
-  .skills-container {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-
-  .skills-content-panel {
-    background: white;
-    padding: 1.5rem;
-    border-radius: 16px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-  }
-
-  /* Timeline */
-  .timeline {
-    padding-left: 1.5rem;
-  }
-
-  .timeline-dot {
-    left: -2.05rem;
-  }
-
-  /* Grids */
-  .achievements-wrapper,
-  .cert-grid {
+  .about__container, .skills-container, .achievements-wrapper, .cert-grid, .footer-content {
     grid-template-columns: 1fr;
   }
-
-  /* Footer */
-  .footer-content {
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-    gap: 2rem;
-  }
-
   .footer-links {
-    flex-direction: column;
-    gap: 1rem;
+      flex-direction: column;
+      gap: 1rem;
+  }
+  .skills-container {
+      gap: 2rem;
   }
 }
 
-/* Small Mobile (max-width: 480px) */
 @media (max-width: 480px) {
-  /* Global Padding Reduction */
-  section {
-    padding: 4rem 1.5rem;
-  }
-
-  /* About Boxes Stack */
-  .about__boxes {
-    grid-template-columns: 1fr;
-  }
-
-  /* Contact Box */
-  .contact-container {
-    padding: 2rem 1.5rem;
-  }
-
-  /* Chat Window */
-  .chat-window {
-    width: calc(100% - 40px);
-    right: 20px;
-    bottom: 90px;
-    height: 450px;
-  }
-
-  /* Floating Bubble */
-  .floating-bubble {
-    bottom: 90px;
-    right: 20px;
-    width: 50px;
-    height: 50px;
-    font-size: 1.2rem;
-  }
-
-  /* Hero Adjustments */
-  .hero-img-container {
-    transform: scale(0.7);
-    height: 250px;
-  }
-
-  .hero .text-gradient {
-    font-size: 2rem;
-  }
+  section { padding: 4rem 1.5rem; }
+  .about__boxes { grid-template-columns: 1fr; }
+  .contact-container { padding: 2rem 1.5rem; }
+  .chat-window { width: calc(100% - 40px); right: 20px; bottom: 90px; height: 450px; }
+  .floating-bubble { bottom: 90px; right: 20px; width: 50px; height: 50px; font-size: 1.2rem; }
 }

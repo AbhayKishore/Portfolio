@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
+import './index.css'; // Make sure index.css is in the same folder
 
 export default function PortfolioPage() {
   // ========== DATA SECTION ==========
@@ -6,69 +7,70 @@ export default function PortfolioPage() {
     name: "Abhay Kishore",
     role: "Full-Stack Developer & AI Enthusiast",
     summary: "Building intelligent full-stack solutions that merge engineering, AI, creativity, and purposeful impact.",
-   about: [
-  "I'm Abhay, a full-stack developer and AI enthusiast who enjoys building practical digital solutions that blend solid engineering with emerging technologies. I focus on creating meaningful applications, exploring AI research, and developing products that contribute value through thoughtful design and purposeful innovation."],
+    about: [
+      "I'm Abhay, a full-stack developer and AI enthusiast who enjoys building practical digital solutions that blend solid engineering with emerging technologies. I focus on creating meaningful applications, exploring AI research, and developing products that contribute value through thoughtful design and purposeful innovation."
+    ],
     stats: {
-        experience: "Fresh Graduate with Internship Experience", 
-        support: "24*7" 
+      experience: "Fresh Graduate with Internship Experience", 
+      support: "24*7" 
     },
-skills: [
-  {
-    category: "Web Development",
-    icon: "bi-globe",
-    items: [
-      { name: "HTML & CSS", level: 90 },
-      { name: "React & JavaScript", level: 80 },               
-      { name: "Django & Flask", level: 90 },                   
-      { name: "PHP & MySQL", level: 80 },                      
-      { name: "REST APIs, AJAX & JSON", level: 80 }            
-    ]
-  },
-  {
-    category: "AI & Data Science",
-    icon: "bi-robot",
-    items: [
-      { name: "Python (NumPy, Pandas)", level: 90 },           
-      { name: "Data Visualization (Matplotlib)", level: 80 },  
-      { name: "Generative AI & Gemini API", level: 85 },       
-      { name: "Prompt Engineering", level: 85 },               
-      { name: "NLP & Document Processing (PDF, DOCX, OCR)", level: 80 }  
-    ]
-  },
-  {
-    category: "Programming Languages",
-    icon: "bi-code-slash",
-    items: [
-      { name: "Python", level: 95 },
-      { name: "Java", level: 75 },                             
-      { name: "C / C++", level: 70 }                           
-    ]
-  },
-  {
-    category: "Other Tools",
-     icon: "bi-cpu",
-    items: [
-      { name: "Git & GitHub", level: 85 },
-      { name: "Linux Administration & Shell", level: 80 },     
-      { name: "Cybersecurity Fundamentals", level: 80 },       
-      { name: "Ethical Hacking Tools", level: 70 },            
-      { name: "Cloud & Deployment (WSGI, venv)", level: 70 },
-      { name: "Robotic Systems & Sensor Integration (Basics)", level: 60 } 
-    ]
-  },
-  {
-    category: "Computer Science Fundamentals",
-    icon: "bi-motherboard",
-    items: [
-      { name: "Data Structures & Algorithms", level: 80 },     
-      { name: "Object-Oriented Programming", level: 80 },      
-      { name: "Database Design & SQL (DBMS)", level: 85 },     
-      { name: "Operating Systems & Linux Concepts", level: 75 },
-      { name: "Computer Networks", level: 75 },                
-      { name: "Software Engineering & SDLC", level: 80 }       
-    ]
-  },
-],
+    skills: [
+      {
+        category: "Web Development",
+        icon: "bi-globe",
+        items: [
+          { name: "HTML & CSS", level: 90 },
+          { name: "React & JavaScript", level: 80 },               
+          { name: "Django & Flask", level: 90 },                   
+          { name: "PHP & MySQL", level: 80 },                       
+          { name: "REST APIs, AJAX & JSON", level: 80 }            
+        ]
+      },
+      {
+        category: "AI & Data Science",
+        icon: "bi-robot",
+        items: [
+          { name: "Python (NumPy, Pandas)", level: 90 },           
+          { name: "Data Visualization (Matplotlib)", level: 80 },  
+          { name: "Generative AI & Gemini API", level: 85 },       
+          { name: "Prompt Engineering", level: 85 },               
+          { name: "NLP & Document Processing (PDF, DOCX, OCR)", level: 80 }  
+        ]
+      },
+      {
+        category: "Programming Languages",
+        icon: "bi-code-slash",
+        items: [
+          { name: "Python", level: 95 },
+          { name: "Java", level: 75 },                             
+          { name: "C / C++", level: 70 }                           
+        ]
+      },
+      {
+        category: "Other Tools",
+        icon: "bi-cpu",
+        items: [
+          { name: "Git & GitHub", level: 85 },
+          { name: "Linux Administration & Shell", level: 80 },     
+          { name: "Cybersecurity Fundamentals", level: 80 },       
+          { name: "Ethical Hacking Tools", level: 70 },            
+          { name: "Cloud & Deployment (WSGI, venv)", level: 70 },
+          { name: "Robotic Systems & Sensor Integration (Basics)", level: 60 } 
+        ]
+      },
+      {
+        category: "Computer Science Fundamentals",
+        icon: "bi-motherboard",
+        items: [
+          { name: "Data Structures & Algorithms", level: 80 },     
+          { name: "Object-Oriented Programming", level: 80 },      
+          { name: "Database Design & SQL (DBMS)", level: 85 },     
+          { name: "Operating Systems & Linux Concepts", level: 75 },
+          { name: "Computer Networks", level: 75 },                
+          { name: "Software Engineering & SDLC", level: 80 }       
+        ]
+      },
+    ],
     email: "abhaykishore2004@gmail.com",
     github: "https://github.com/AbhayKishore",
     linkedin: "https://www.linkedin.com/in/abhay-kishore",
@@ -76,15 +78,16 @@ skills: [
     location: "Ernakulam, Kerala, India",
   };
 
-  // Flatten skills for the Tech Stack cloud
-  const allSkills = personal.skills.flatMap(category => category.items.map(item => item.name));
-
   // --- STATE MANAGEMENT ---
   const [openSkillIndex, setOpenSkillIndex] = useState(0);
   const [filter, setFilter] = useState("all");
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [chatOpen, setChatOpen] = useState(false);
+  
+  // NEW STATE: For Mobile Menu
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   const [messages, setMessages] = useState([
     { type: 'bot', text: 'Hi there! I am Abhay\'s Assistant. How can I help you today?' }
   ]);
@@ -93,15 +96,15 @@ skills: [
 
   // --- HELPER FUNCTIONS ---
 
-  
-
-  const toggleSkill = (index) => {
-    setOpenSkillIndex(openSkillIndex === index ? null : index);
-  };
-
   const scrollToSection = (id) => {
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: "smooth" });
+  };
+
+  // NEW FUNCTION: Handle clicking a link in mobile menu (scrolls AND closes menu)
+  const handleMobileNavClick = (id) => {
+    scrollToSection(id);
+    setIsMobileMenuOpen(false); // This auto-closes the menu
   };
 
   const handleFooterServicesClick = (e) => {
@@ -114,124 +117,95 @@ skills: [
   };
 
   // --- CHAT LOGIC ---
-const handleChatOption = (option) => {
-  setMessages((prev) => [...prev, { type: "user", text: option.label }]);
+  const handleChatOption = (option) => {
+    setMessages((prev) => [...prev, { type: "user", text: option.label }]);
 
-  setTimeout(() => {
-    let botResponse = "";
+    setTimeout(() => {
+      let botResponse = "";
 
-    switch (option.action) {
-      case "contact":
-        botResponse =
-          `You can reach Abhay at ${personal.email} or on WhatsApp/phone at ${personal.phone}. ` +
-          `He is based in ${personal.location} and is open to remote or hybrid opportunities.`;
-        scrollToSection("contact");
-        break;
-
-      case "resume": {
-        botResponse = "Sure, downloading Abhay’s latest resume for you.";
-        const link = document.createElement("a");
-        link.href = "/Abhay_Kishore_CV.pdf";
-        link.download = "Abhay_Kishore_CV.pdf";
-        link.click();
-        break;
+      switch (option.action) {
+        case "contact":
+          botResponse = `You can reach Abhay at ${personal.email} or on WhatsApp/phone at ${personal.phone}. He is based in ${personal.location} and is open to remote or hybrid opportunities.`;
+          scrollToSection("contact");
+          break;
+        case "resume": {
+          botResponse = "Sure, downloading Abhay’s latest resume for you.";
+          const link = document.createElement("a");
+          link.href = "/Abhay_Kishore_CV.pdf";
+          link.download = "Abhay_Kishore_CV.pdf";
+          link.click();
+          break;
+        }
+        case "projects":
+          botResponse = "Key projects: FitConnect, a full-stack fitness platform built with Django and MySQL, and an AI Resume Evaluator using Flask and Gemini to score resumes and suggest improvements.";
+          scrollToSection("projects");
+          break;
+        case "experience":
+          botResponse = "Abhay has interned as an AI Intern at AccelerateX and as a Web Development Intern at Megatrend, alongside multiple academic and personal projects in full-stack development and AI.";
+          scrollToSection("work");
+          break;
+        case "education":
+          botResponse = "Abhay completed his BCA at Rajagiri College with a CGPA of 8.8, studying programming, data structures, databases, operating systems, networks, cloud computing and Android, and was the class topper in his first semester.";
+          scrollToSection("education");
+          break;
+        case "roles":
+          botResponse = "Abhay is seeking roles such as junior full-stack developer, backend developer (Python/Django or PHP), or AI/data/ML intern, especially where he can combine web development with AI features.";
+          break;
+        case "ai_profile":
+          botResponse = "Abhay works with Python, NumPy, Pandas and Matplotlib, has built a Gemini-powered resume analysis tool, attended workshops on Generative AI and prompt engineering, and presented AI-focused cybersecurity research at national and international conferences.";
+          scrollToSection("certifications");
+          break;
+        case "why_abhay":
+          botResponse = "Abhay combines strong fundamentals in programming, data structures and databases with practical experience in Django, Flask, PHP, MySQL and AI tools, backed by solid academics and published conference work—making him a well-rounded early-career engineer.";
+          break;
+        case "bio":
+          botResponse = "Abhay is a BCA graduate from Kerala with a focus on full-stack development and applied AI, building practical web and AI solutions and aiming to pursue a Master’s in Data Science and Artificial Intelligence.";
+          scrollToSection("about");
+          break;
+        case "services":
+          botResponse = "Abhay can help with full-stack web development (Django, Flask, PHP/CodeIgniter, MySQL), AI integration using Gemini and other LLMs, data analysis and dashboards in Python, and secure backend and API design.";
+          scrollToSection("skills");
+          break;
+        case "skills":
+          botResponse = "His core skills include Python, Django, Flask, React, PHP, MySQL, REST APIs, Git/GitHub, Linux, NumPy, Pandas, Matplotlib, Generative AI, prompt engineering and solid CS fundamentals in DSA, operating systems and networks.";
+          scrollToSection("skills");
+          break;
+        case "current_work":
+          botResponse = "Abhay is currently enhancing his AI Resume Evaluator, experimenting with new LLM-powered features, building Django applications and strengthening his data and ML skill set.";
+          break;
+        default:
+          botResponse = "I’m not sure about that request, but you can always contact Abhay directly at " + personal.email + ".";
       }
 
-      case "projects":
-        botResponse =
-          "Key projects: FitConnect, a full-stack fitness platform built with Django and MySQL, and an AI Resume Evaluator using Flask and Gemini to score resumes and suggest improvements.";
-        scrollToSection("projects");
-        break;
+      setMessages((prev) => [...prev, { type: "bot", text: botResponse }]);
+    }, 600);
+  };
 
-      case "experience":
-        botResponse =
-          "Abhay has interned as an AI Intern at AccelerateX and as a Web Development Intern at Megatrend, alongside multiple academic and personal projects in full-stack development and AI.";
-        scrollToSection("work");
-        break;
+  const chatOptions = [
+    { label: "What roles is Abhay looking for?", action: "roles" },
+    { label: "What services can Abhay help with?", action: "services" },
+    { label: "Tell me about his AI & data skills", action: "ai_profile" },
+    { label: "Show his main projects", action: "projects" },
+    { label: "Summarise his experience", action: "experience" },
+    { label: "Where did he study?", action: "education" },
+    { label: "Why should I hire Abhay?", action: "why_abhay" },
+    { label: "Give me a short bio", action: "bio" },
+    { label: "What are his core skills?", action: "skills" },
+    { label: "What is he working on now?", action: "current_work" },
+    { label: "How can I contact Abhay?", action: "contact" },
+    { label: "Download his resume", action: "resume" },
+  ];
 
-      case "education":
-        botResponse =
-          "Abhay completed his BCA at Rajagiri College with a CGPA of 8.8, studying programming, data structures, databases, operating systems, networks, cloud computing and Android, and was the class topper in his first semester.";
-        scrollToSection("education");
-        break;
-
-      case "roles":
-        botResponse =
-          "Abhay is seeking roles such as junior full-stack developer, backend developer (Python/Django or PHP), or AI/data/ML intern, especially where he can combine web development with AI features.";
-        break;
-
-      case "ai_profile":
-        botResponse =
-          "Abhay works with Python, NumPy, Pandas and Matplotlib, has built a Gemini-powered resume analysis tool, attended workshops on Generative AI and prompt engineering, and presented AI-focused cybersecurity research at national and international conferences.";
-        scrollToSection("certifications");
-        break;
-
-      case "why_abhay":
-        botResponse =
-          "Abhay combines strong fundamentals in programming, data structures and databases with practical experience in Django, Flask, PHP, MySQL and AI tools, backed by solid academics and published conference work—making him a well-rounded early-career engineer.";
-        break;
-
-      case "bio":
-        botResponse =
-          "Abhay is a BCA graduate from Kerala with a focus on full-stack development and applied AI, building practical web and AI solutions and aiming to pursue a Master’s in Data Science and Artificial Intelligence.";
-        scrollToSection("about");
-        break;
-
-      case "services":
-        botResponse =
-          "Abhay can help with full-stack web development (Django, Flask, PHP/CodeIgniter, MySQL), AI integration using Gemini and other LLMs, data analysis and dashboards in Python, and secure backend and API design.";
-        scrollToSection("skills");
-        break;
-
-      case "skills":
-        botResponse =
-          "His core skills include Python, Django, Flask, React, PHP, MySQL, REST APIs, Git/GitHub, Linux, NumPy, Pandas, Matplotlib, Generative AI, prompt engineering and solid CS fundamentals in DSA, operating systems and networks.";
-        scrollToSection("skills");
-        break;
-
-      case "current_work":
-        botResponse =
-          "Abhay is currently enhancing his AI Resume Evaluator, experimenting with new LLM-powered features, building Django applications and strengthening his data and ML skill set.";
-        break;
-
-      default:
-        botResponse =
-          "I’m not sure about that request, but you can always contact Abhay directly at " +
-          personal.email +
-          ".";
-    }
-
-    setMessages((prev) => [...prev, { type: "bot", text: botResponse }]);
-  }, 600);
-};
-
-// --- CHAT OPTIONS (one for every action above) ---
-const chatOptions = [
-  { label: "What roles is Abhay looking for?", action: "roles" },
-  { label: "What services can Abhay help with?", action: "services" },
-  { label: "Tell me about his AI & data skills", action: "ai_profile" },
-  { label: "Show his main projects", action: "projects" },
-  { label: "Summarise his experience", action: "experience" },
-  { label: "Where did he study?", action: "education" },
-  { label: "Why should I hire Abhay?", action: "why_abhay" },
-  { label: "Give me a short bio", action: "bio" },
-  { label: "What are his core skills?", action: "skills" },
-  { label: "What is he working on now?", action: "current_work" },
-  { label: "How can I contact Abhay?", action: "contact" },
-  { label: "Download his resume", action: "resume" },
-];
-
-// --- NAV SECTIONS (unchanged, just grouped here) ---
-const navSections = [
-  { id: "about",          label: "About Me",    icon: "bi-person" },
-  { id: "projects",       label: "Projects",       icon: "bi-code-square" },
-  { id: "education",      label: "Education",      icon: "bi-mortarboard" },
-  { id: "work",           label: "Experience",     icon: "bi-briefcase" },
-  { id: "certifications", label: "Certifications", icon: "bi-patch-check" },
-  { id: "achievements",   label: "Achievements",   icon: "bi-trophy" },
-  { id: "skills",         label: "Skills",         icon: "bi-cpu" },
-  { id: "contact",        label: "Contact",        icon: "bi-envelope" },
-];
+  const navSections = [
+    { id: "about",          label: "About Me",    icon: "bi-person" },
+    { id: "projects",       label: "Projects",       icon: "bi-code-square" },
+    { id: "education",      label: "Education",      icon: "bi-mortarboard" },
+    { id: "work",           label: "Experience",     icon: "bi-briefcase" },
+    { id: "certifications", label: "Certifications", icon: "bi-patch-check" },
+    { id: "achievements",   label: "Achievements",   icon: "bi-trophy" },
+    { id: "skills",         label: "Skills",         icon: "bi-cpu" },
+    { id: "contact",        label: "Contact",        icon: "bi-envelope" },
+  ];
 
   // --- EFFECT HOOKS ---
   useEffect(() => {
@@ -271,9 +245,7 @@ const navSections = [
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-
-
-  // --- STATIC DATA ---
+  // Static data
   const projects = [
     {
       id: 1,
@@ -293,11 +265,9 @@ const navSections = [
       tech: ["Flask", "Gemini AI", "Python", "Bootstrap"],
       link: "https://github.com/AbhayKishore/AI-Resume-Evaluator",
     },
-    
   ];
 
   const filteredProjects = filter === "all" ? projects : projects.filter((p) => p.category === filter);
-
   const filters = [
     { name: "all", label: "All" },
     { name: "web", label: "Web" },
@@ -394,12 +364,50 @@ const navSections = [
     { id: 3, text: "Presented 'AI-Generated Deepfakes' at National Conference" },
   ];
 
-
-
   // ========== RENDER ==========
   return (
     <>
-      {/* SIDEBAR */}
+      {/* MOBILE HEADER (Apple Style) */}
+      <header className="mobile-header">
+        <a href="#home" className="mobile-logo" onClick={(e) => { e.preventDefault(); scrollToSection("home"); }}>
+            <div className="logo-avatar" style={{width:'30px', height:'30px', fontSize:'0.8rem'}}>AK</div>
+            <span className="logo-text" style={{fontSize:'1rem'}}>ABHAY KISHORE</span>
+        </a>
+        
+        <div style={{display:'flex', alignItems:'center', gap:'15px'}}>
+            <a href="/Abhay_Kishore_CV.pdf" download className="contact-btn" style={{padding:'6px 16px', fontSize:'0.85rem', width:'auto'}}>
+                 Resume
+            </a>
+            <button className="hamburger-btn" onClick={() => setIsMobileMenuOpen(true)}>
+                 <i className="bi bi-list"></i>
+            </button>
+        </div>
+      </header>
+
+      {/* FULL SCREEN MOBILE MENU OVERLAY */}
+      <div className={`mobile-menu-overlay ${isMobileMenuOpen ? 'open' : ''}`}>
+           <button className="mobile-menu-close" onClick={() => setIsMobileMenuOpen(false)}>
+               <i className="bi bi-x"></i>
+           </button>
+           
+           <nav className="mobile-nav-list">
+               {navSections.map((s, index) => (
+                   <a 
+                     key={s.id} 
+                     href={`#${s.id}`} 
+                     className="mobile-nav-link"
+                     onClick={(e) => { 
+                         e.preventDefault(); 
+                         handleMobileNavClick(s.id); 
+                     }}
+                   >
+                       {s.label}
+                   </a>
+               ))}
+           </nav>
+      </div>
+
+      {/* SIDEBAR (Desktop Only) */}
       <aside className={`sidebar ${sidebarCollapsed ? "collapsed" : ""}`}>
         <div className="sidebar-inner" style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
           
@@ -432,14 +440,12 @@ const navSections = [
         </div>
       </aside>
 
-      {/* MAIN PAGE CONTENT */}
+      {/* MAIN CONTENT */}
       <main className={`page-content ${sidebarCollapsed ? "collapsed" : ""}`}>
         
         {/* 1. HERO */}
         <section id="home" className="hero reveal active">
           <div className="hero-content">
-            
-            {/* LEFT SIDE: Text */}
             <div className="hero-text">
               <span style={{ color: "var(--accent)", fontWeight: 600, letterSpacing: "1px", textTransform: "uppercase", fontSize: "0.9rem" }}>
                 Hello, I am
@@ -450,7 +456,7 @@ const navSections = [
               </h2>
               <p className="lead">{personal.summary}</p>
               
-              <div style={{ display: "flex", gap: "1rem" }}>
+              <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap", justifyContent: "center" }}>
                 <a href={personal.github} target="_blank" rel="noreferrer" className="contact-btn" style={{ width: "auto", padding: "0.8rem 1.5rem" }}>
                   <i className="bi bi-github"></i> GitHub
                 </a>
@@ -460,12 +466,8 @@ const navSections = [
               </div>
             </div>
             <div className="hero-img-container">
-              
-              {/* Abstract Background Shapes */}
               <div className="hero-blob blob-1"></div>
               <div className="hero-blob blob-2"></div>
-              
-              {/* The Laptop Illustration */}
               <div className="laptop-container">
                 <div className="laptop-screen">
                   <div className="code-window">
@@ -484,8 +486,6 @@ const navSections = [
                 </div>
                 <div className="laptop-base"></div>
               </div>
-
-              {/* Floating Tech Badges (Orbiting elements) */}
               <div className="floating-badge badge-1">
                 <i className="bi bi-database-fill"></i>
               </div>
@@ -495,71 +495,50 @@ const navSections = [
               <div className="floating-badge badge-3">
                 <i className="bi bi-code-slash"></i>
               </div>
-
             </div>
-
-
           </div>
         </section>
 
         {/* 2. ABOUT */}
-      <section className="about section" id="about">
-        <h2 className="section-title">About Me</h2>
-
-        <div className="about__container container grid">
-          {/* Left Side: Image */}
-         <img src="/assets/AbhayKishore_Photo.jpg" alt="Abhay Kishore" className="about__img" />
-
-          {/* Right Side: Data */}
-          <div className="about__data">
-            
-            {/* The Text Paragraphs */}
-            <div className="about__info">
-              {personal.about.map((paragraph, index) => (
-                <p className="about__description" key={index}>
-                  {paragraph}
-                </p>
-              ))}
+        <section className="about section" id="about">
+          <h2 className="section-title">About Me</h2>
+          <div className="about__container container grid">
+            <img src="/assets/AbhayKishore_Photo.jpg" alt="Abhay Kishore" className="about__img" />
+            <div className="about__data">
+              <div className="about__info">
+                {personal.about.map((paragraph, index) => (
+                  <p className="about__description" key={index}>
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+              <div className="about__boxes">
+                <div className="about__box">
+                  <i className="bi bi-award about__icon"></i>
+                  <h3 className="about__title">Experience</h3>
+                  <span className="about__subtitle">{personal.stats.experience}</span>
+                </div>
+                <div className="about__box">
+                  <i className="bi bi-briefcase-fill about__icon"></i>
+                  <h3 className="about__title">Completed</h3>
+                  <span className="about__subtitle">{completedProjects} Projects</span>
+                </div>
+                <div className="about__box">
+                  <i className="bi bi-headset about__icon"></i>
+                  <h3 className="about__title">Online Support</h3>
+                  <span className="about__subtitle">{personal.stats.support}</span>
+                </div>
+              </div>
+              <a href="#contact" className="button button--flex">
+                Contact Me <i className="bi bi-send button__icon"></i>
+              </a>
             </div>
-
-            {/* The Stats Boxes */}
-            <div className="about__boxes">
-              
-              {/* Box 1: Experience */}
-              <div className="about__box">
-                <i className="bi bi-award about__icon"></i>
-                <h3 className="about__title">Experience</h3>
-                <span className="about__subtitle">{personal.stats.experience}</span>
-              </div>
-
-              {/* Box 2: Completed */}
-              <div className="about__box">
-                <i className="bi bi-briefcase-fill about__icon"></i>
-                <h3 className="about__title">Completed</h3>
-                <span className="about__subtitle">{completedProjects} Projects</span>
-              </div>
-
-              {/* Box 3: Support */}
-              <div className="about__box">
-                <i className="bi bi-headset about__icon"></i>
-                <h3 className="about__title">Online Support</h3>
-                <span className="about__subtitle">{personal.stats.support}</span>
-              </div>
-              
-            </div>
-
-            <a href="#contact" className="button button--flex">
-              Contact Me <i className="bi bi-send button__icon"></i>
-            </a>
           </div>
-        </div>
-      </section>
+        </section>
 
         {/* 3. PROJECTS */}
         <section id="projects" className="reveal">
           <h2 className="section-title">Featured Work</h2>
-
-          {/* Filter Buttons */}
           <div className="work-filters">
             {filters.map((item) => (
               <span 
@@ -571,8 +550,6 @@ const navSections = [
               </span>
             ))}
           </div>
-
-          {/* Project Grid */}
           <div className="grid">
             {filteredProjects.map((p) => (
               <a key={p.id} href={p.link} target="_blank" rel="noreferrer" className="project-card">
@@ -589,7 +566,6 @@ const navSections = [
               </a>
             ))}
           </div>
-          
           {filteredProjects.length === 0 && (
             <p style={{textAlign: "center", color: "#94a3b8", marginTop: "2rem"}}>
               No projects found in this category yet.
@@ -670,12 +646,10 @@ const navSections = [
             </div>
         </section>
 
-        {/* 8. SKILLS (Tabbed) */}
+        {/* 8. SKILLS */}
         <section id="skills" className="reveal">
           <h2 className="section-title">My Experience</h2>
-          
           <div className="skills-container">
-            {/* LEFT COLUMN: The Tabs List */}
             <div className="skills-tabs">
               {personal.skills.map((category, idx) => {
                 const isActive = openSkillIndex === idx;
@@ -686,21 +660,17 @@ const navSections = [
                     onClick={() => setOpenSkillIndex(idx)}
                   >
                     <i className={`bi ${category.icon} skills-icon-large`}></i>
-                    
                     <div className="skills-header-titles">
                       <h3 className="skills-title">{category.category}</h3>
                       <span className="skills-subtitle">
                           {isActive ? "Viewing details" : "Click to view"}
                       </span>
                     </div>
-
                     <i className="bi bi-chevron-right skills-arrow"></i>
                   </div>
                 );
               })}
             </div>
-
-            {/* RIGHT COLUMN: The Content for the Selected Tab */}
             <div className="skills-content-panel">
               {personal.skills[openSkillIndex] && personal.skills[openSkillIndex].items.map((skill, sIdx) => (
                 <div key={sIdx} className="skill-bar-item">
@@ -720,7 +690,7 @@ const navSections = [
           </div>
         </section>
 
-         {/* 9. CONTACT */}
+        {/* 9. CONTACT */}
         <section id="contact" style={{ paddingBottom: "8rem" }}>
           <h2 className="section-title">Get In Touch</h2>
           <div className="contact-container">
@@ -740,22 +710,16 @@ const navSections = [
         {/* 10. FOOTER */}
         <footer className="footer">
           <div className="footer-content">
-            
-            {/* Left: Brand & Role */}
             <div className="footer-brand">
               <h2>{personal.name}</h2>
               <p>{personal.role}</p>
               <p style={{fontSize: '0.9rem', opacity: 0.7}}>Based in {personal.location}</p>
             </div>
-
-            {/* Center: Navigation Links */}
             <div className="footer-links">
               <a href="#services" onClick={handleFooterServicesClick}>Services</a>
               <a href="#projects" onClick={(e) => { e.preventDefault(); scrollToSection("projects"); }}>Works</a>
               <a href="#contact" onClick={(e) => { e.preventDefault(); scrollToSection("contact"); }}>Contact</a>
             </div>
-
-            {/* Right: Social Icons */}
             <div className="footer-socials">
               <a href={personal.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn">
                 <i className="bi bi-linkedin"></i>
@@ -768,13 +732,12 @@ const navSections = [
               </a>
             </div>
           </div>
-
           <div className="footer-bottom">
             <p>&copy; {new Date().getFullYear()} {personal.name}. All Rights Reserved.</p>
           </div>
         </footer>
 
-        {/* --- CHAT BOT UI --- */}
+        {/* CHAT BOT */}
         {chatOpen && (
             <div className="chat-window">
                 <div className="chat-header">
@@ -804,7 +767,6 @@ const navSections = [
         <div className="floating-bubble" onClick={() => setChatOpen(!chatOpen)} title="Chat with me">
           {chatOpen ? <i className="bi bi-x-lg"></i> : <i className="bi bi-robot"></i>}
         </div>
-
       </main>
     </>
   );
