@@ -74,8 +74,7 @@ export default function PortfolioPage() {
     email: "abhaykishore2004@gmail.com",
     github: "https://github.com/AbhayKishore",
     linkedin: "https://www.linkedin.com/in/abhay-kishore",
-    phone: "+91 8304966250",
-    location: "Ernakulam, Kerala, India",
+    location: "Magdeburg, Saxony-Anhalt, Germany",
   };
 
   // --- STATE MANAGEMENT ---
@@ -125,7 +124,7 @@ export default function PortfolioPage() {
 
       switch (option.action) {
         case "contact":
-          botResponse = `You can reach Abhay at ${personal.email} or on WhatsApp/phone at ${personal.phone}. He is based in ${personal.location} and is open to remote or hybrid opportunities.`;
+          botResponse = `You can reach Abhay at ${personal.email}. He is based in ${personal.location} and is open to remote or hybrid opportunities.`;
           scrollToSection("contact");
           break;
         case "resume": {
@@ -301,22 +300,29 @@ export default function PortfolioPage() {
   const education = [
     {
       id: 1,
-      range: "Aug 2022 — May 2025",
-      degree: "Bachelor of Computer Applications (BCA)",
-      institution: "Rajagiri College of Management & Applied Sciences",
-      extras: "CGPA: 8.8 / 10.0",
+      range: "Apr 2026 — Present",
+      degree: "Data and Knowledge Engineering (M.Sc.)",
+      institution: "Otto-von-Guericke-Universität, Magdeburg (Germany)",
+      extras: "",
     },
     {
       id: 2,
-      range: "Sept 2020 — Jul 2022",
-      degree: "Senior School Certificate (Class XII)",
-      institution: "Assisi Vidyaniketan Public School, Ernakulam",
+      range: "Aug 2022 — May 2025",
+      degree: "Bachelor of Computer Applications (BCA)",
+      institution: "Rajagiri College of Management & Applied Sciences, Kakanad (India)",
+      extras: "CGPA: 8.8 / 10.0",
     },
     {
       id: 3,
+      range: "Sept 2020 — Jul 2022",
+      degree: "Senior School Certificate (Class XII)",
+      institution: "Assisi Vidyaniketan Public School, Ernakulam (India)",
+    },
+    {
+      id: 4,
       range: "Jun 2019 — Jul 2020",
       degree: "Secondary School Examination (Class X)",
-      institution: "Assisi Vidyaniketan Public School, Ernakulam, Kerala, India",
+      institution: "Assisi Vidyaniketan Public School, Ernakulam (India)",
     },
   ];
 
@@ -359,9 +365,9 @@ export default function PortfolioPage() {
   ];
 
   const achievements = [
-    { id: 1, text: "Class Topper — First Semester (Rajagiri College)" },
-    { id: 2, text: "Presented research on 'AI in Cybersecurity' at International Conference" },
-    { id: 3, text: "Presented 'AI-Generated Deepfakes' at National Conference" },
+    { id: 1, text: "Achieved Class Topper position in First Semester at Rajagiri College" },
+    { id: 2, text: "Delivered a presentation on 'AI in Cybersecurity' at International Conference" },
+    { id: 3, text: "Delivered a presentation on 'AI-Generated Deepfakes' at National Conference" },
   ];
 
   // ========== RENDER ==========
@@ -701,8 +707,7 @@ export default function PortfolioPage() {
               <i className="bi bi-envelope-at"></i> Mail Me
             </a>
             <div style={{ marginTop: "1.5rem", color: "#94a3b8", fontSize: "0.9rem" }}>
-              {personal.location} <br /> 
-              {personal.phone}
+              {personal.location}
             </div>
           </div>
         </section>
