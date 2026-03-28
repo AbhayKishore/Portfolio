@@ -309,7 +309,7 @@ export default function PortfolioPage() {
       id: 2,
       range: "Aug 2022 — May 2025",
       degree: "Bachelor of Computer Applications (BCA)",
-      institution: "Rajagiri College of Management & Applied Sciences, Kakanad (India)",
+      institution: "Rajagiri College of Management & Applied Sciences, Kakkanad (India)",
       extras: "CGPA: 8.8 / 10.0",
     },
     {
