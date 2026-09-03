@@ -1,7 +1,8 @@
 import personal from "../data/personal";
 
 export default function MobileHeader({
-  onOpenMenu,
+  isMenuOpen,
+  onToggleMenu,
   onNavigate,
 }) {
   const handleHomeClick = (event) => {
@@ -57,12 +58,21 @@ export default function MobileHeader({
         <button
           type="button"
           className="hamburger-btn"
-          onClick={onOpenMenu}
-          aria-label="Open navigation menu"
+          onClick={onToggleMenu}
+          aria-label={
+            isMenuOpen
+              ? "Close navigation menu"
+              : "Open navigation menu"
+          }
           aria-haspopup="dialog"
+          aria-expanded={isMenuOpen}
         >
           <i
-            className="bi bi-list"
+            className={`bi ${
+              isMenuOpen
+                ? "bi-x-lg"
+                : "bi-list"
+            }`}
             aria-hidden="true"
           />
         </button>

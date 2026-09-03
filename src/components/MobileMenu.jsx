@@ -8,6 +8,10 @@ export default function MobileMenu({
   onClose,
   onNavigate,
 }) {
+  /* =======================================
+     LOCK BODY + ESCAPE
+     ======================================= */
+
   useEffect(() => {
     if (!isOpen) {
       return;
@@ -22,7 +26,9 @@ export default function MobileMenu({
     const previousOverflow =
       document.body.style.overflow;
 
-    document.body.style.overflow = "hidden";
+    document.body.style.overflow =
+      "hidden";
+
     window.addEventListener(
       "keydown",
       handleEscape
@@ -39,6 +45,10 @@ export default function MobileMenu({
     };
   }, [isOpen, onClose]);
 
+  /* =======================================
+     NAVIGATION
+     ======================================= */
+
   const handleNavigation = (
     event,
     sectionId
@@ -52,55 +62,31 @@ export default function MobileMenu({
         .getElementById(sectionId)
         ?.scrollIntoView({
           behavior: "smooth",
+          block: "start",
         });
     }
 
     onClose();
   };
 
+  /* =======================================
+     COMPONENT
+     ======================================= */
+
   return (
-    <div
-      className={`mobile-menu-overlay ${
-        isOpen ? "open" : ""
-      }`}
+   <div
+  className={`mobile-menu-overlay ${
+    isOpen ? "open" : ""
+  }`}
+  inert={!isOpen ? "" : undefined}
       role="dialog"
       aria-modal="true"
       aria-label="Mobile navigation"
       aria-hidden={!isOpen}
     >
-      <div className="mobile-menu__top">
-        <a
-          href="#home"
-          className="mobile-menu__brand"
-          onClick={(event) =>
-            handleNavigation(event, "home")
-          }
-        >
-          <div
-            className="mobile-menu__avatar"
-            aria-hidden="true"
-          >
-            {personal.initials}
-          </div>
-
-          <div>
-            <strong>{personal.name}</strong>
-            <span>{personal.shortRole}</span>
-          </div>
-        </a>
-
-        <button
-          type="button"
-          className="mobile-menu-close"
-          onClick={onClose}
-          aria-label="Close navigation menu"
-        >
-          <i
-            className="bi bi-x-lg"
-            aria-hidden="true"
-          />
-        </button>
-      </div>
+      {/* ===================================
+          NAVIGATION
+          =================================== */}
 
       <nav
         className="mobile-nav-list"
@@ -129,14 +115,18 @@ export default function MobileMenu({
                   : undefined
               }
             >
-              <span className="mobile-nav-link__icon">
+              <span
+                className="mobile-nav-link__icon"
+                aria-hidden="true"
+              >
                 <i
                   className={`bi ${section.icon}`}
-                  aria-hidden="true"
                 />
               </span>
 
-              <span>{section.label}</span>
+              <span className="mobile-nav-link__label">
+                {section.label}
+              </span>
 
               <i
                 className="bi bi-arrow-right mobile-nav-link__arrow"
@@ -147,10 +137,15 @@ export default function MobileMenu({
         })}
       </nav>
 
+      {/* ===================================
+          FOOTER
+          =================================== */}
+
       <div className="mobile-menu__footer">
         <p>
-          Open to internships, working-student
-          roles and selected collaborations.
+          Open to internships,
+          working-student roles and selected
+          collaborations.
         </p>
 
         <div className="mobile-menu__actions">
@@ -163,12 +158,14 @@ export default function MobileMenu({
               aria-hidden="true"
             />
 
-            Email me
+            <span>Email me</span>
           </a>
 
           <a
             href={personal.resume.path}
-            download={personal.resume.filename}
+            download={
+              personal.resume.filename
+            }
             className="mobile-menu__resume"
           >
             <i
@@ -176,7 +173,7 @@ export default function MobileMenu({
               aria-hidden="true"
             />
 
-            Résumé
+            <span>Résumé</span>
           </a>
         </div>
       </div>

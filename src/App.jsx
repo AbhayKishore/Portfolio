@@ -125,10 +125,13 @@ export default function App() {
     []
   );
 
-  const openMobileMenu =
-    useCallback(() => {
-      setIsMobileMenuOpen(true);
-    }, []);
+const toggleMobileMenu =
+  useCallback(() => {
+    setIsMobileMenuOpen(
+      (currentValue) =>
+        !currentValue
+    );
+  }, []);
 
   const closeMobileMenu =
     useCallback(() => {
@@ -164,10 +167,11 @@ export default function App() {
 
   return (
     <>
-      <MobileHeader
-        onOpenMenu={openMobileMenu}
-        onNavigate={scrollToSection}
-      />
+<MobileHeader
+  isMenuOpen={isMobileMenuOpen}
+  onToggleMenu={toggleMobileMenu}
+  onNavigate={scrollToSection}
+/>
 
       <MobileMenu
         isOpen={isMobileMenuOpen}
