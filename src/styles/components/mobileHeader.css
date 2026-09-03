@@ -46,17 +46,19 @@
 }
 
 /* =========================================
-   BRAND
+   MOBILE BRAND
    ========================================= */
 
-.mobile-header__brand {
-  display: flex;
+.mobile-logo {
+  display: inline-flex;
 
   min-width: 0;
 
   align-items: center;
 
-  gap: 0.65rem;
+  flex-direction: row;
+
+  gap: 0.55rem;
 
   color:
     var(--color-text);
@@ -64,11 +66,15 @@
   text-decoration: none;
 }
 
-.mobile-header__avatar {
+/* =========================================
+   AVATAR
+   ========================================= */
+
+.mobile-logo__avatar {
   display: grid;
 
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
 
   flex-shrink: 0;
 
@@ -76,7 +82,7 @@
 
   border:
     1px solid
-    rgba(20, 255, 236, 0.16);
+    rgba(20, 255, 236, 0.18);
 
   border-radius: 9px;
 
@@ -86,18 +92,28 @@
   color:
     #101010;
 
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   font-weight: 900;
+
+  line-height: 1;
 }
 
-.mobile-header__brand strong {
+/* =========================================
+   NAME
+   ========================================= */
+
+.mobile-logo__name {
+  display: block;
+
   overflow: hidden;
 
   color:
     var(--color-text);
 
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 800;
+
+  line-height: 1;
 
   text-overflow: ellipsis;
 
@@ -201,6 +217,48 @@
 
   transform:
     scale(0.96);
+}
+
+/* =========================================
+   SMALLER MOBILE
+   ========================================= */
+
+@media (max-width: 420px) {
+  .mobile-header {
+    gap: 0.6rem;
+
+    padding:
+      0.65rem
+      0.75rem;
+  }
+
+  .mobile-logo {
+    gap: 0.45rem;
+  }
+
+  .mobile-logo__avatar {
+    width: 30px;
+    height: 30px;
+
+    font-size: 0.64rem;
+  }
+
+  .mobile-logo__name {
+    font-size: 0.78rem;
+  }
+
+  .mobile-header__resume {
+    padding:
+      0.45rem
+      0.6rem;
+
+    font-size: 0.66rem;
+  }
+
+  .hamburger-btn {
+    width: 36px;
+    height: 36px;
+  }
 }
 
 /* =========================================

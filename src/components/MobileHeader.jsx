@@ -29,7 +29,7 @@ export default function MobileHeader({
         aria-label="Go to homepage"
       >
         <div
-          className="mobile-logo__avatar"
+          className="logo-avatar mobile-logo__avatar"
           aria-hidden="true"
         >
           {personal.initials}
