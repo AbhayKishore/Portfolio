@@ -1,10 +1,12 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import './index.css'
-import PortfolioPage from './App.jsx'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <PortfolioPage />
-  </React.StrictMode>,
-)
+import App from "./App.jsx";
+
+createRoot(
+  document.getElementById("root")
+).render(
+  <StrictMode>
+    <App />
+  </StrictMode>
+);

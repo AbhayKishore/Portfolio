@@ -1,0 +1,498 @@
+/* =========================================
+   SKILLS SECTION
+   ========================================= */
+
+#skills {
+  width: 100%;
+  max-width: none;
+}
+
+/* =========================================
+   SKILLS LAYOUT
+   ========================================= */
+
+.skills-container {
+  display: grid;
+
+  width: 100%;
+
+  grid-template-columns:
+    minmax(280px, 340px)
+    minmax(0, 1fr);
+
+  align-items: flex-start;
+
+  gap:
+    clamp(1.5rem, 2.5vw, 3rem);
+
+  max-width: none;
+
+  margin: 0;
+}
+.skills-content-panel {
+  width: 100%;
+  min-height: 300px;
+}
+
+
+/* =========================================
+   LEFT SIDE — CATEGORY TABS
+   KEEPING YOUR ORIGINAL DESIGN
+   ========================================= */
+
+  
+.skills-tabs {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 0.75rem;
+}
+
+.skills-header {
+  display: flex;
+
+  width: 100%;
+
+  align-items: center;
+
+  gap: 1rem;
+
+  padding: 1rem;
+
+  border:
+    1px solid transparent;
+
+  border-radius: 14px;
+
+  background: transparent;
+
+  color: var(--color-text);
+
+  font-family: inherit;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  opacity: 0.68;
+
+  transition:
+    opacity var(--transition-fast),
+    border-color var(--transition-fast),
+    background var(--transition-fast),
+    box-shadow var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.skills-header:hover {
+  border-color:
+    rgba(20, 255, 236, 0.18);
+
+  background: #242424;
+
+  opacity: 1;
+}
+
+.skills-header.active {
+  border-color:
+    rgba(20, 255, 236, 0.28);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(13, 115, 119, 0.22),
+      rgba(20, 255, 236, 0.04)
+    );
+
+  opacity: 1;
+
+  box-shadow:
+    var(--shadow-sm);
+
+  transform: none;
+}
+
+
+/* =========================================
+   LEFT SIDE — TAB ICON
+   ========================================= */
+
+.skills-icon-large {
+  flex-shrink: 0;
+
+  color: var(--color-primary-hover);
+
+  font-size: 1.7rem;
+}
+.skills-header.active .skills-icon-large {
+  color: var(--color-secondary);
+}
+
+.skills-header-titles {
+  min-width: 0;
+
+  flex: 1;
+}
+
+.skills-title {
+  margin-bottom: 0.2rem;
+
+  color:
+    var(--color-text);
+
+  font-size: 1rem;
+
+  font-weight: 700;
+
+  line-height: 1.35;
+}
+
+.skills-subtitle {
+  color:
+    var(--color-text-muted);
+
+  font-size: 0.76rem;
+
+  line-height: 1.45;
+}
+
+.skills-arrow {
+  flex-shrink: 0;
+
+  margin-left: auto;
+
+  color:
+    var(--color-primary);
+
+  font-size: 1.2rem;
+
+  opacity: 0;
+
+  transform:
+    translateX(-4px);
+
+  transition:
+    opacity var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.skills-header.active
+  .skills-arrow {
+  opacity: 1;
+
+  transform:
+    translateX(0);
+}
+
+
+/* =========================================
+   RIGHT SIDE — ACTIVE CONTENT PANEL
+   ========================================= */
+
+.skills-content-panel {
+  min-height: 300px;
+
+  padding: 1.6rem;
+
+  border:
+    1px solid var(--color-border);
+
+  border-radius: 18px;
+
+  background:
+    var(--color-surface);
+
+  box-shadow:
+    0 16px 34px
+    rgba(0, 0, 0, 0.22);
+
+  animation:
+    skillsFadeIn 0.4s ease;
+}
+
+@keyframes skillsFadeIn {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+}
+
+
+/* =========================================
+   RIGHT SIDE — PANEL HEADER
+   ========================================= */
+
+.skills-panel__header {
+  display: flex;
+
+  align-items: center;
+
+  gap: 1rem;
+
+  margin-bottom: 1.5rem;
+
+  padding-bottom: 1.2rem;
+
+  border-bottom:
+    1px solid var(--color-border);
+}
+
+.skills-panel__icon {
+  display: grid;
+
+  width: 48px;
+  height: 48px;
+
+  flex-shrink: 0;
+
+  place-items: center;
+
+  border:
+    1px solid
+    rgba(20, 255, 236, 0.18);
+
+  border-radius: 14px;
+
+  background:
+    var(--gradient-primary);
+
+  color:
+    #0b0b0b;
+
+  font-size: 1.1rem;
+
+  box-shadow:
+    0 8px 22px
+    rgba(13, 115, 119, 0.2);
+}
+
+
+/* =========================================
+   PANEL TITLE
+   ========================================= */
+
+.skills-panel__header h3 {
+  margin:
+    0
+    0
+    0.25rem;
+
+  color:
+    var(--color-text);
+
+  font-size: 1.15rem;
+
+  font-weight: 800;
+
+  line-height: 1.3;
+}
+
+
+/* =========================================
+   PANEL DESCRIPTION
+   ========================================= */
+
+.skills-panel__header p {
+  max-width: 900px;
+
+  margin: 0;
+
+  color:
+    var(--color-text-muted);
+
+  font-size: 0.82rem;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================
+   RIGHT SIDE — SKILLS GRID
+   ========================================= */
+
+.skills-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 0.8rem;
+}
+
+
+/* =========================================
+   RIGHT SIDE — SKILL CHIP
+   ========================================= */
+
+.skill-chip {
+  display: flex;
+
+  min-height: 52px;
+
+  align-items: center;
+
+  padding:
+    0.75rem
+    1rem;
+
+  border:
+    1px solid var(--color-border);
+
+  border-radius: 12px;
+
+  background:
+    #242424;
+
+  color:
+    var(--color-text-secondary);
+
+  font-size: 0.8rem;
+
+  font-weight: 700;
+
+  transition:
+    border-color var(--transition-fast),
+    background var(--transition-fast),
+    color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+
+/* =========================================
+   TEAL BULLET
+   ========================================= */
+
+.skill-chip::before {
+  display: inline-block;
+
+  width: 6px;
+  height: 6px;
+
+  flex-shrink: 0;
+
+  margin-right: 0.65rem;
+
+  border-radius: 50%;
+
+  background:
+    var(--color-primary-hover);
+
+  content: "";
+}
+
+
+/* =========================================
+   SKILL CHIP — HOVER
+   ========================================= */
+
+.skill-chip:hover {
+  border-color:
+    rgba(20, 255, 236, 0.25);
+
+  background:
+    #292929;
+
+  color:
+    var(--color-text);
+
+  transform:
+    translateY(-2px);
+}
+
+.skill-chip:hover::before {
+  background:
+    var(--color-secondary);
+}
+
+
+/* =========================================
+   IMPORTANT:
+   HIDE OLD CHECK ICONS
+   ========================================= */
+
+.skill-chip i {
+  display: none;
+}
+
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 900px) {
+
+  .skills-container {
+    grid-template-columns: 1fr;
+
+    gap: 2rem;
+  }
+
+  .skills-tabs {
+    display: grid;
+
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .skills-header:hover {
+    transform:
+      translateY(-2px);
+  }
+
+  .skills-content-panel {
+    min-height: 0;
+  }
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 600px) {
+
+  .skills-tabs {
+    grid-template-columns: 1fr;
+  }
+
+  .skills-content-panel {
+    padding: 1.2rem;
+  }
+
+  .skills-panel__header {
+    align-items: flex-start;
+  }
+
+  .skills-panel__icon {
+    width: 42px;
+    height: 42px;
+
+    border-radius: 12px;
+
+    font-size: 1.05rem;
+  }
+
+  .skills-panel__header h3 {
+    font-size: 1.15rem;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skill-chip {
+    min-height: 48px;
+  }
+
+
+}

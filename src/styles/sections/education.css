@@ -1,0 +1,206 @@
+/* =========================================
+   EDUCATION SECTION
+   ========================================= */
+
+#education {
+  width: 100%;
+  max-width: none;
+}
+
+#education .timeline {
+  width: 100%;
+  max-width: none;
+}
+
+/* =========================================
+   EDUCATION CARD HEADER
+   ========================================= */
+
+.timeline-card {
+  width: 100%;
+}
+
+.timeline-card__specialization,
+.timeline-card__details {
+  max-width: 1100px;
+}
+.timeline-card__top {
+  width: 100%;
+}
+   .timeline-card__top {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 1rem;
+
+  margin-bottom: 0.8rem;
+} 
+
+.timeline-card__date {
+  color:
+    var(--color-primary-hover);
+
+  font-size: 0.76rem;
+  font-weight: 700;
+
+  letter-spacing: 0.06em;
+
+  text-transform: uppercase;
+}
+
+/* =========================================
+   EDUCATION STATUS
+   ========================================= */
+
+.timeline-card__status {
+  display: inline-flex;
+
+  align-items: center;
+
+  padding:
+    0.3rem
+    0.65rem;
+
+  border-radius: var(--radius-pill);
+
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.timeline-card__status--ongoing {
+  background:
+    rgba(13, 115, 119, 0.22);
+
+  color:
+    var(--color-secondary);
+
+  border:
+    1px solid
+    rgba(20, 255, 236, 0.16);
+}
+
+
+.timeline-card__status--completed {
+  background:
+    rgba(34, 197, 94, 0.12);
+
+  color:
+    #4ade80;
+
+  border:
+    1px solid
+    rgba(34, 197, 94, 0.18);
+}
+
+/* =========================================
+   EDUCATION TITLE
+   ========================================= */
+
+.timeline-card__title {
+  margin-bottom: 0.35rem;
+
+  color: var(--color-text);
+
+  font-size: 1.25rem;
+  font-weight: 800;
+
+  line-height: 1.35;
+}
+
+.timeline-card__institution {
+  margin-bottom: 0.45rem;
+
+  color: var(--color-text-muted);
+
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.timeline-card__location {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 0.35rem;
+
+  margin-bottom: 1rem;
+
+  color: var(--color-text-muted);
+
+  font-size: 0.82rem;
+}
+
+/* =========================================
+   EDUCATION GRADE
+   ========================================= */
+
+.timeline-card__grade {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-bottom: 1rem;
+
+  padding:
+    0.55rem
+    0.8rem;
+}
+
+/* =========================================
+   SPECIALIZATION / SUMMARY
+   ========================================= */
+
+.timeline-card__specialization {
+  margin-bottom: 1rem;
+
+  color: var(--color-text-muted);
+
+  font-size: 0.92rem;
+
+  line-height: 1.7;
+}
+
+/* =========================================
+   DETAILS LIST
+   ========================================= */
+
+.timeline-card__details {
+  padding-left: 1.2rem;
+
+  color: var(--color-text-muted);
+
+  font-size: 0.9rem;
+
+  line-height: 1.7;
+}
+
+.timeline-card__details li + li {
+  margin-top: 0.45rem;
+}
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 600px) {
+  .timeline-card__top {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 0.6rem;
+  }
+
+  .timeline-card__title {
+    font-size: 1.1rem;
+  }
+
+  .timeline-card__institution {
+    font-size: 0.9rem;
+  }
+
+  .timeline-card__details {
+    font-size: 0.86rem;
+  }
+}

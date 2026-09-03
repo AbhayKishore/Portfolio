@@ -1,0 +1,613 @@
+/* =========================================
+   ABOUT SECTION
+   ========================================= */
+
+#about {
+  width: 100%;
+  max-width: none;
+}
+
+/* =========================================
+   LAYOUT
+   ========================================= */
+
+.about__container {
+  display: grid;
+
+  width: 100%;
+
+  grid-template-columns:
+    360px
+    minmax(0, 1fr);
+
+  align-items: stretch;
+
+  gap: 2rem;
+}
+
+/* =========================================
+   LEFT SIDE
+   ========================================= */
+
+.about__visual {
+  display: flex;
+
+  width: 100%;
+  height: 100%;
+
+  flex-direction: column;
+
+  gap: 1rem;
+}
+
+/* =========================================
+   IMAGE FRAME
+   ========================================= */
+
+.about__image-frame {
+  position: relative;
+
+  width: 100%;
+  max-width: 360px;
+
+  overflow: hidden;
+
+  padding: 8px;
+
+  border:
+    1px solid
+    rgba(20, 255, 236, 0.16);
+
+  border-radius: 20px;
+
+  background:
+    #1a1a1a;
+
+  box-shadow:
+    0 16px 34px
+    rgba(0, 0, 0, 0.28);
+}
+
+.about__img {
+  display: block;
+
+  width: 100%;
+
+  aspect-ratio: 1 / 1.08;
+
+  object-fit: cover;
+  object-position: center top;
+
+  border-radius: 13px;
+
+  filter:
+    brightness(0.92)
+    saturate(0.88)
+    contrast(0.98);
+
+  transition:
+    filter var(--transition-normal),
+    transform var(--transition-normal);
+}
+
+.about__image-frame:hover
+.about__img {
+  filter:
+    brightness(0.96)
+    saturate(0.94)
+    contrast(1);
+
+  transform: scale(1.012);
+}
+
+/* =========================================
+   CURRENT FOCUS CARD
+   ========================================= */
+
+.about__focus-card {
+  display: flex;
+
+  width: 100%;
+  max-width: 360px;
+
+  height: 150px;
+  min-height: 150px;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  margin-top: auto;
+
+  padding:
+    1.1rem
+    1.2rem;
+
+  box-sizing: border-box;
+
+  border:
+    1px solid
+    var(--color-border);
+
+  border-radius: 14px;
+
+  background:
+    var(--color-surface);
+
+  box-shadow: none;
+
+  transition:
+    border-color var(--transition-fast),
+    background var(--transition-fast),
+    box-shadow var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.about__focus-card:hover {
+  border-color:
+    rgba(20, 255, 236, 0.22);
+
+  background:
+    #242424;
+
+  box-shadow:
+    0 10px 24px
+    rgba(0, 0, 0, 0.22);
+
+  transform:
+    translateY(-2px);
+}
+
+.about__focus-label {
+  display: block;
+
+  margin-bottom: 0.4rem;
+
+  color:
+    var(--color-primary-hover);
+
+  font-size: 0.7rem;
+  font-weight: 800;
+
+  letter-spacing: 0.06em;
+
+  text-transform: uppercase;
+}
+
+.about__focus-card h3 {
+  margin: 0 0 0.25rem;
+
+  color:
+    var(--color-text);
+
+  font-size: 1.05rem;
+  font-weight: 800;
+
+  line-height: 1.35;
+}
+
+.about__focus-card p {
+  margin: 0;
+
+  color:
+    var(--color-text-muted);
+
+  font-size: 0.8rem;
+
+  line-height: 1.5;
+}
+
+/* =========================================
+   RIGHT SIDE
+   ========================================= */
+
+.about__data {
+  display: flex;
+
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+
+  flex-direction: column;
+}
+
+/* =========================================
+   INTRO
+   ========================================= */
+
+.about__intro {
+  margin-bottom: 1.15rem;
+}
+
+/* =========================================
+   ROLE
+   ========================================= */
+
+.about__role {
+  display: inline-block;
+
+  margin-bottom: 0.55rem;
+
+  color:
+    var(--color-primary-hover);
+
+  font-size: 0.78rem;
+  font-weight: 800;
+
+  letter-spacing: 0.06em;
+
+  text-transform: uppercase;
+}
+
+/* =========================================
+   HEADLINE
+   ========================================= */
+
+.about__headline {
+  max-width: 1000px;
+
+  margin: 0;
+
+  color:
+    var(--color-text);
+
+  font-size:
+    clamp(2rem, 2.7vw, 2.75rem);
+
+  font-weight: 800;
+
+  line-height: 1.12;
+
+  letter-spacing: -0.04em;
+}
+
+/* =========================================
+   DESCRIPTION
+   ========================================= */
+
+.about__info {
+  width: 100%;
+
+  max-width: 1000px;
+}
+
+.about__description {
+  max-width: 1000px;
+
+  margin:
+    0
+    0
+    0.65rem;
+
+  color:
+    var(--color-text-muted);
+
+  font-size: 0.95rem;
+
+  line-height: 1.7;
+}
+
+/* =========================================
+   CAREER FOCUS
+   ========================================= */
+
+.about__focus {
+  display: flex;
+
+  width: 100%;
+  max-width: 1000px;
+
+  align-items: center;
+
+  gap: 0.75rem;
+
+  /*
+   * Pushes Career Focus + stats toward
+   * the bottom of the right column.
+   */
+  margin-top: auto;
+  margin-bottom: 1rem;
+}
+
+.about__focus-heading {
+  flex-shrink: 0;
+
+  margin: 0;
+
+  color:
+    var(--color-text);
+
+  font-size: 0.78rem;
+  font-weight: 800;
+
+  line-height: 1.2;
+}
+
+.about__focus-heading::after {
+  content: " :";
+}
+
+.about__focus-list {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  align-items: center;
+
+  gap: 0.5rem;
+}
+
+.about__focus-item {
+  display: inline-flex;
+
+  min-height: 32px;
+
+  align-items: center;
+
+  padding:
+    0.38rem
+    0.7rem;
+
+  border:
+    1px solid
+    rgba(20, 255, 236, 0.16);
+
+  border-radius:
+    var(--radius-pill);
+
+  background:
+    rgba(13, 115, 119, 0.16);
+
+  color:
+    #b8e4e3;
+
+  font-size: 0.72rem;
+  font-weight: 700;
+
+  white-space: nowrap;
+
+  transition:
+    border-color var(--transition-fast),
+    background var(--transition-fast),
+    color var(--transition-fast);
+}
+
+.about__focus-item:hover {
+  border-color:
+    rgba(20, 255, 236, 0.3);
+
+  background:
+    rgba(13, 115, 119, 0.28);
+
+  color:
+    var(--color-secondary);
+}
+
+/* =========================================
+   STATS ROW
+   ========================================= */
+
+.about__boxes {
+  display: grid;
+
+  width: 100%;
+  max-width: 1000px;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 1rem;
+
+  margin: 0;
+}
+
+/* =========================================
+   STAT CARD
+   ========================================= */
+
+.about__box {
+  display: flex;
+
+  width: 100%;
+
+  height: 150px;
+  min-height: 150px;
+
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: flex-start;
+
+  padding:
+    1.1rem
+    1.2rem;
+
+  box-sizing: border-box;
+
+  border:
+    1px solid
+    var(--color-border);
+
+  border-radius: 14px;
+
+  background:
+    var(--color-surface);
+
+  box-shadow: none;
+
+  transition:
+    border-color var(--transition-fast),
+    background var(--transition-fast),
+    box-shadow var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.about__box:hover {
+  border-color:
+    rgba(20, 255, 236, 0.22);
+
+  background:
+    #242424;
+
+  box-shadow:
+    0 10px 24px
+    rgba(0, 0, 0, 0.22);
+
+  transform:
+    translateY(-2px);
+}
+
+/* =========================================
+   STAT ICON
+   ========================================= */
+
+.about__icon {
+  margin-bottom: 0.6rem;
+
+  color:
+    var(--color-primary);
+
+  font-size: 1rem;
+}
+
+/* =========================================
+   STAT TITLE
+   ========================================= */
+
+.about__title {
+  margin-bottom: 0.2rem;
+
+  color:
+    var(--color-text-muted);
+
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+/* =========================================
+   STAT VALUE
+   ========================================= */
+
+.about__stat {
+  margin-bottom: 0.25rem;
+
+  color:
+    var(--color-text);
+
+  font-size: 1.3rem;
+  font-weight: 800;
+
+  line-height: 1.2;
+}
+
+/* =========================================
+   STAT SUBTITLE
+   ========================================= */
+
+.about__subtitle {
+  color:
+    var(--color-text-muted);
+
+  font-size: 0.74rem;
+
+  line-height: 1.4;
+}
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 1000px) {
+  .about__container {
+    grid-template-columns:
+      320px
+      minmax(0, 1fr);
+
+    gap: 2rem;
+  }
+
+  .about__image-frame,
+  .about__focus-card {
+    max-width: 320px;
+  }
+
+  .about__focus {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 0.55rem;
+  }
+
+  .about__focus-heading::after {
+    content: "";
+  }
+}
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 760px) {
+  .about__container {
+    grid-template-columns: 1fr;
+
+    gap: 2rem;
+  }
+
+  .about__visual {
+    height: auto;
+
+    align-items: flex-start;
+  }
+
+  .about__image-frame,
+  .about__focus-card {
+    width: 100%;
+    max-width: 430px;
+  }
+
+  .about__focus-card {
+    margin-top: 0;
+  }
+
+  .about__data {
+    height: auto;
+  }
+
+  .about__focus {
+    max-width: 100%;
+
+    margin-top: 0;
+  }
+
+  .about__boxes {
+    max-width: 100%;
+
+    grid-template-columns: 1fr;
+  }
+
+  .about__box {
+    height: 135px;
+    min-height: 135px;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+   ========================================= */
+
+@media (max-width: 520px) {
+  .about__image-frame,
+  .about__focus-card {
+    max-width: 100%;
+  }
+
+  .about__focus-list {
+    width: 100%;
+  }
+
+  .about__focus-item {
+    white-space: normal;
+  }
+}

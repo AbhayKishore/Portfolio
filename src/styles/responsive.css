@@ -1,0 +1,559 @@
+/* =========================================
+   GLOBAL RESPONSIVE SAFETY
+   ========================================= */
+
+html,
+body,
+#root {
+  width: 100%;
+  max-width: 100%;
+}
+
+html,
+body {
+  overflow-x: clip;
+}
+
+/* =========================================
+   TABLET / MOBILE
+   ========================================= */
+
+@media (max-width: 768px) {
+  /* =======================================
+     PAGE
+     ======================================= */
+
+  .page-content,
+  .page-content.collapsed {
+    width: 100%;
+    max-width: 100%;
+
+    margin-left: 0 !important;
+
+    padding-top:
+      var(--mobile-header-height);
+
+    overflow-x: clip;
+  }
+
+  /* =======================================
+     SECTIONS
+     ======================================= */
+
+  section,
+  #about,
+  #projects,
+  #education,
+  #work,
+  #certifications,
+  #achievements,
+  #skills,
+  #contact {
+    width: 100%;
+    max-width: 100%;
+
+    margin-left: 0;
+    margin-right: 0;
+
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  section:not(.hero) {
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
+  }
+
+  /* =======================================
+     SECTION HEADINGS
+     ======================================= */
+
+  .section-heading {
+    width: 100%;
+    max-width: 100%;
+
+    margin-bottom: 2rem;
+  }
+
+  .section-title {
+    font-size:
+      clamp(2rem, 10vw, 2.7rem);
+  }
+
+  .section-description {
+    max-width: 100%;
+
+    font-size: 0.9rem;
+
+    line-height: 1.65;
+  }
+
+  /* =======================================
+     HERO
+     ======================================= */
+
+  .hero {
+    width: 100%;
+    min-height: auto;
+
+    padding:
+      2.75rem
+      1.25rem
+      4rem;
+
+    overflow: hidden;
+  }
+
+  .hero-content {
+    display: grid;
+
+    width: 100%;
+    max-width: 100%;
+
+    grid-template-columns: 1fr;
+
+    gap: 2.5rem;
+  }
+
+  .hero-text {
+    width: 100%;
+    max-width: 100%;
+
+    margin: 0;
+
+    text-align: left;
+  }
+
+  .hero-eyebrow {
+    justify-content: flex-start;
+
+    margin-bottom: 0.75rem;
+  }
+
+  .hero h1 {
+    width: 100%;
+
+    font-size:
+      clamp(2.8rem, 13vw, 4rem);
+
+    line-height: 0.98;
+
+    overflow-wrap: anywhere;
+  }
+
+  .hero-role {
+    margin-top: 1rem;
+
+    font-size:
+      clamp(1.05rem, 5vw, 1.3rem);
+  }
+
+  .hero .lead {
+    width: 100%;
+    max-width: 100%;
+
+    margin:
+      0.9rem
+      0
+      1.6rem;
+
+    font-size: 0.95rem;
+
+    line-height: 1.7;
+  }
+
+  .hero-actions {
+    justify-content: flex-start;
+  }
+
+  /* =======================================
+     HERO VISUAL
+     ======================================= */
+
+  .hero-img-container {
+    width: 100%;
+    max-width: 100%;
+
+    height: auto;
+    min-height: 300px;
+
+    transform: none !important;
+  }
+
+  .laptop-container {
+    width:
+      min(270px, 72vw);
+
+    max-width: 100%;
+
+    margin: 0 auto;
+  }
+
+  .laptop-screen {
+    width: 100%;
+    height: auto;
+
+    aspect-ratio: 1.6 / 1;
+  }
+
+  .laptop-base {
+    width:
+      calc(100% + 36px);
+
+    max-width:
+      calc(100vw - 2.5rem);
+
+    margin-left: -18px;
+  }
+
+  .blob-1 {
+    width: 180px;
+    height: 180px;
+  }
+
+  .blob-2 {
+    width: 150px;
+    height: 150px;
+  }
+
+  .floating-badge {
+    width: 48px;
+    height: 48px;
+
+    border-radius: 13px;
+
+    font-size: 1.3rem;
+  }
+
+  /* =======================================
+     ABOUT
+     ======================================= */
+
+  .about__container {
+    width: 100%;
+
+    grid-template-columns: 1fr;
+
+    gap: 2rem;
+  }
+
+  .about__visual,
+  .about__data {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .about__image-frame,
+  .about__focus-card {
+    width: 100%;
+    max-width: 420px;
+
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .about__focus-card {
+    height: auto;
+    min-height: 130px;
+
+    margin-top: 0;
+  }
+
+  .about__headline,
+  .about__info,
+  .about__description {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .about__headline {
+    font-size:
+      clamp(1.9rem, 9vw, 2.6rem);
+  }
+
+  .about__focus {
+    width: 100%;
+    max-width: 100%;
+
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    margin-top: 1rem;
+
+    gap: 0.6rem;
+  }
+
+  .about__focus-heading::after {
+    content: "";
+  }
+
+  .about__focus-list {
+    width: 100%;
+  }
+
+  .about__focus-item {
+    white-space: normal;
+  }
+
+  .about__boxes {
+    width: 100%;
+    max-width: 100%;
+
+    grid-template-columns: 1fr;
+
+    margin-top: 1.25rem;
+  }
+
+  .about__box {
+    height: auto;
+    min-height: 125px;
+  }
+
+  /* =======================================
+     PROJECTS
+     ======================================= */
+
+  #projects .grid {
+    width: 100%;
+
+    grid-template-columns: 1fr;
+  }
+
+  .project-card {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .card-thumb {
+    height: auto;
+
+    aspect-ratio: 16 / 9;
+  }
+
+  /* =======================================
+     TIMELINES
+     ======================================= */
+
+  #education .timeline,
+  #work .timeline {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .timeline {
+    margin-left: 0.4rem;
+
+    padding-left: 1.4rem;
+  }
+
+  .timeline-card,
+  .experience-card {
+    width: 100%;
+    min-width: 0;
+
+    padding: 1.15rem;
+  }
+
+  /* =======================================
+     CERTIFICATIONS
+     ======================================= */
+
+  .cert-grid {
+    width: 100%;
+
+    grid-template-columns: 1fr;
+  }
+
+  .cert-card {
+    width: 100%;
+
+    min-height: auto;
+  }
+
+  /* =======================================
+     ACHIEVEMENTS
+     ======================================= */
+
+  .achievements-wrapper {
+    width: 100%;
+
+    grid-template-columns: 1fr;
+  }
+
+  .achievement-card {
+    width: 100%;
+
+    min-height: auto;
+  }
+
+  /* =======================================
+     SKILLS
+     ======================================= */
+
+  .skills-container {
+    width: 100%;
+    max-width: 100%;
+
+    grid-template-columns: 1fr;
+
+    margin: 0;
+  }
+
+  .skills-tabs {
+    grid-template-columns: 1fr;
+  }
+
+  .skills-content-panel {
+    width: 100%;
+
+    min-width: 0;
+
+    padding: 1.2rem;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* =======================================
+     CONTACT
+     ======================================= */
+
+  .contact-layout {
+    width: 100%;
+
+    grid-template-columns: 1fr;
+
+    gap: 1rem;
+  }
+
+  .contact-intro-card {
+    width: 100%;
+
+    padding: 1.4rem;
+  }
+
+  .contact-intro-card h3 {
+    max-width: 100%;
+
+    font-size:
+      clamp(1.8rem, 9vw, 2.5rem);
+  }
+
+  .contact-intro-card p {
+    max-width: 100%;
+  }
+
+  .contact-details {
+    width: 100%;
+
+    grid-template-columns: 1fr;
+  }
+
+  /* =======================================
+     FOOTER
+     ======================================= */
+
+  .footer {
+    width: 100%;
+
+    padding:
+      3rem
+      1.25rem
+      1.5rem;
+  }
+
+  .footer-content {
+    width: 100%;
+
+    grid-template-columns: 1fr;
+
+    gap: 2rem;
+  }
+
+  .footer-navigation {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .footer-socials {
+    grid-column: auto;
+
+    display: flex;
+
+    justify-content: flex-start;
+  }
+
+  .footer-bottom {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+}
+
+/* =========================================
+   SMALL PHONES
+   ========================================= */
+
+@media (max-width: 520px) {
+  section,
+  #about,
+  #projects,
+  #education,
+  #work,
+  #certifications,
+  #achievements,
+  #skills,
+  #contact {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .hero {
+    padding:
+      2.25rem
+      1rem
+      3.5rem;
+  }
+
+  .hero-actions {
+    display: grid;
+
+    width: 100%;
+
+    grid-template-columns:
+      1fr
+      1fr;
+
+    gap: 0.65rem;
+  }
+
+  .hero-primary-action,
+  .hero-secondary-action {
+    width: 100%;
+
+    min-width: 0;
+
+    padding:
+      0.7rem
+      0.8rem;
+  }
+
+  .laptop-container {
+    width:
+      min(245px, 70vw);
+  }
+
+  .floating-badge {
+    width: 42px;
+    height: 42px;
+
+    font-size: 1.1rem;
+  }
+
+  .footer-navigation {
+    gap: 1.25rem;
+  }
+}

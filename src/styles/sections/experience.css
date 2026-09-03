@@ -1,0 +1,277 @@
+/* =========================================
+   EXPERIENCE SECTION
+   ========================================= */
+
+#work {
+  width: 100%;
+  max-width: none;
+}
+
+#work .timeline {
+  width: 100%;
+  max-width: none;
+}
+
+/* =========================================
+   EXPERIENCE CARD
+   ========================================= */
+
+.experience-card {
+  width: 100%;
+}
+
+.experience-card__summary,
+.experience-card__responsibilities {
+  max-width: 1100px;
+}
+   .experience-card {
+  background:
+    var(--color-surface);
+
+  border:
+    1px solid var(--color-border);
+
+  border-radius: 18px;
+
+  padding: 1.5rem;
+
+  box-shadow:
+    0 12px 30px
+    rgba(0, 0, 0, 0.22);
+
+  transition:
+    border-color var(--transition-fast),
+    background var(--transition-fast),
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.experience-card:hover {
+  border-color:
+    rgba(20, 255, 236, 0.28);
+
+  background:
+    #242424;
+
+  transform:
+    translateY(-3px);
+
+  box-shadow:
+    0 18px 40px
+    rgba(0, 0, 0, 0.3);
+}
+
+/* =========================================
+   HEADER
+   ========================================= */
+
+.experience-card__header {
+  display: flex;
+
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 1rem;
+
+  margin-bottom: 0.8rem;
+}
+
+/* =========================================
+   TYPE
+   ========================================= */
+
+.experience-card__type {
+  display: inline-flex;
+
+  align-items: center;
+
+  margin-bottom: 0.65rem;
+
+  padding:
+    0.32rem
+    0.65rem;
+
+  border:
+    1px solid
+    rgba(20, 255, 236, 0.16);
+
+  border-radius:
+    var(--radius-pill);
+
+  background:
+    var(--color-primary-soft);
+
+  color:
+    var(--color-primary-hover);
+
+  font-size: 0.7rem;
+  font-weight: 800;
+}
+
+/* =========================================
+   TITLE
+   ========================================= */
+
+.experience-card__title {
+  margin:
+    0
+    0
+    0.35rem;
+
+  color:
+    var(--color-text);
+
+  font-size: 1.2rem;
+  font-weight: 800;
+
+  line-height: 1.35;
+}
+
+/* =========================================
+   COMPANY
+   ========================================= */
+
+.experience-card__company {
+  margin: 0;
+
+  color:
+    var(--color-text-secondary);
+
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+/* =========================================
+   DATE
+   ========================================= */
+
+.experience-card__date {
+  flex-shrink: 0;
+
+  color:
+    var(--color-primary-hover);
+
+  font-size: 0.76rem;
+  font-weight: 700;
+
+  letter-spacing: 0.04em;
+
+  white-space: nowrap;
+}
+
+/* =========================================
+   LOCATION
+   ========================================= */
+
+.experience-card__location {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 0.4rem;
+
+  margin-bottom: 0.9rem;
+
+  color:
+    var(--color-text-muted);
+
+  font-size: 0.82rem;
+}
+
+.experience-card__location i {
+  color:
+    var(--color-primary-hover);
+}
+
+/* =========================================
+   SUMMARY
+   ========================================= */
+
+.experience-card__summary {
+  margin-bottom: 1rem;
+
+  color:
+    var(--color-text-secondary);
+
+  font-size: 0.9rem;
+
+  line-height: 1.7;
+}
+
+/* =========================================
+   RESPONSIBILITIES
+   ========================================= */
+
+.experience-card__responsibilities {
+  padding-left: 1.2rem;
+
+  color:
+    var(--color-text-muted);
+
+  font-size: 0.88rem;
+
+  line-height: 1.7;
+}
+
+.experience-card__responsibilities li + li {
+  margin-top: 0.45rem;
+}
+
+.experience-card__responsibilities li::marker {
+  color:
+    var(--color-primary-hover);
+}
+
+/* =========================================
+   TECHNOLOGIES
+   ========================================= */
+
+.experience-card__technologies {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 0.5rem;
+
+  margin-top: 1.2rem;
+}
+
+/* =========================================
+   TIMELINE DOT
+   ========================================= */
+
+#work .timeline-dot {
+  border:
+    3px solid var(--color-bg);
+
+  background:
+    var(--color-primary-hover);
+
+  box-shadow:
+    0 0 0 3px
+    rgba(13, 115, 119, 0.28);
+}
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 680px) {
+  .experience-card {
+    padding: 1.25rem;
+  }
+
+  .experience-card__header {
+    flex-direction: column;
+
+    gap: 0.6rem;
+  }
+
+  .experience-card__date {
+    align-self: flex-start;
+  }
+
+  .experience-card__title {
+    font-size: 1.1rem;
+  }
+}
